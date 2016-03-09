@@ -27,7 +27,7 @@ In your uploader, include the module and call the processor:
 
 ```ruby
 class PhotoUploader < CarrierWave::Uploader::Base
-  include include CarrierWave::Color
+  include CarrierWave::Color
 
   process :store_dominant_color
 
