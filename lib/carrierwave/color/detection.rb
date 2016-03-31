@@ -3,9 +3,6 @@ require "colorscore"
 module CarrierWave
   module Color
     module Detection
-      class Error < StandardError
-      end
-
       module_function
 
       def dominant_html(path)
