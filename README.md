@@ -4,6 +4,8 @@ CarrierWave Color
 Add the dominant color of an image to your database whenever you upload it
 with the CarrierWave gem on your Rails app.
 
+This can be used to show the image's background color while it is loading
+or to index images for a "search by color" feature.
 
 Installation
 ------------
