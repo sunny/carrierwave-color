@@ -17,6 +17,15 @@ module CarrierWave
           result = Detection.dominant_from_palette_html(path, palette)
           expect(result).to eq("#ff0000")
         end
+
+        it "returns nil when the histogram fails" do
+          allow_any_instance_of(Colorscore::Histogram).to receive(:scores)
+            .and_return([[1, nil]])
+
+          palette = %w(ff0000 00ff00 0000ff)
+          result = Detection.dominant_from_palette_html(path, palette)
+          expect(result).to be_nil
+        end
       end
     end
   end
