@@ -10,9 +10,10 @@ or to index images for a "search by color" feature.
 Installation
 ------------
 
-Add this line to your application's Gemfile:
+Add the following lines to your application's Gemfile:
 
 ```ruby
+# Detect the dominant color of images on upload
 gem "carrierwave-color"
 ```
 
