@@ -12,13 +12,14 @@ module CarrierWave
       end
 
       def dominant_from_palette_html(path, palette_hexes)
-        histogram = Colorscore::Histogram.new(path)
+        scores = Colorscore::Histogram.new(path).scores
         palette = Colorscore::Palette.from_hex(palette_hexes)
 
-        histogram_scores = histogram.scores
-        return nil if histogram_scores.first.last.nil?
+        # Return nil values from scores
+        scores.reject! { |_color_score, color| color.nil? }
+        return nil if scores.empty?
 
-        scores = palette.scores(histogram_scores, 1)
+        scores = palette.scores(scores, 1)
         _score, color = scores.first
         color.html
       end
