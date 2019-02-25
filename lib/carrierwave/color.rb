@@ -7,8 +7,9 @@ module CarrierWave
       model.send "#{mounted_as}_dominant_color=", color
     end
 
-    def store_palette_color(palette = Colorscore::Palette::DEFAULT)
-      color = Detection.dominant_from_palette_html(current_path, palette)
+    def store_palette_color(*palette = Colorscore::Palette::DEFAULT)
+      color =
+        Detection.dominant_from_palette_html(current_path, palette.flatten)
       model.send "#{mounted_as}_palette_color=", color
     end
   end
